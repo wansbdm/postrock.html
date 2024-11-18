@@ -30,13 +30,19 @@
         .band {
             margin: 20px 0;
         }
+        .band img {
+            width: 200px; /* 设置图片宽度，根据需要调整 */
+            height: auto; /* 保持图片比例 */
+            border-radius: 50%; /* 如果想要圆形图片，可以设置 */
+        }
         .song {
             margin: 10px 0;
             cursor: pointer;
-            color: #42b983;
+            color: #0000ff; /* 设置文字颜色为蓝色 */
+            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff; /* 添加两层白色发光效果 */
         }
         .song:hover {
-            text-decoration: underline;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #0fa; /* 调整发光效果 */
         }
     </style>
 </head>
@@ -45,13 +51,34 @@
     <div class="content">
         <h1>后摇滚聚集地</h1>
         <h2>乐队介绍</h2>
-        <div class="band">惘闻</div>
-        <div class="band">文雀</div>
-        <div class="band">沼泽</div>
-        <div class="band">Sleep Dealer</div>
-        <div class="band">U137</div>
-        <div class="band">GrimLake</div>
-        <div class="band">Spurv</div>
+        <div class="band">
+            <div class="band-name">惘闻</div>
+            <img src="wangwen.jpg" alt="惘闻乐队">
+        </div>
+        <div class="band">
+            <div class="band-name">文雀</div>
+            <img src="wenque.jpg" alt="文雀乐队">
+        </div>
+        <div class="band">
+            <div class="band-name">沼泽</div>
+            <img src="zhaoze.jpg" alt="沼泽乐队">
+        </div>
+        <div class="band">
+            <div class="band-name">Sleep Dealer</div>
+            <img src="sleepdealer.jpg" alt="Sleep Dealer乐队">
+        </div>
+        <div class="band">
+            <div class="band-name">U137</div>
+            <img src="u137.jpg" alt="U137乐队">
+        </div>
+        <div class="band">
+            <div class="band-name">GrimLake</div>
+            <img src="grimlake.jpg" alt="GrimLake乐队">
+        </div>
+        <div class="band">
+            <div class="band-name">Spurv</div>
+            <img src="spurv.jpg" alt="Spurv乐队">
+        </div>
         <h2>后摇滚歌曲</h2>
         <a href="#" class="song" onclick="playSong('https://y.music.163.com/m/song?id=28164935&userid=1488555551&dlt=0846')">《Hidden Path (匿影藏路)》</a><br>
         <a href="#" class="song" onclick="playSong('https://y.music.163.com/m/song?id=3947467&userid=1488555551&dlt=0846')">《III》</a><br>
