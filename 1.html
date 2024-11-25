@@ -60,6 +60,25 @@
             height: 360px; /* 你可以根据需要调整视频的高度 */
             border: none;
         }
+        .video-container {
+            width: 100%;
+            max-width: 640px; /* 你可以根据需要调整视频的最大宽度 */
+            margin: 20px auto;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 360px; /* 你可以根据需要调整视频的高度 */
+            border: none;
+        }
+        .netease-music-player {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .netease-music-player iframe {
+            width: 100%;
+            height: 430px; /* 网易云音乐播放器高度 */
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -103,29 +122,14 @@
         <a href="#" class="song" onclick="playSong('https://y.music.163.com/m/song?id=2111975449&userid=1488555551&dlt=0846')">《En brennende vogn over jordet》</a><br>
         <a href="#" class="song" onclick="playSong('https://y.music.163.com/m/song?id=1295841438&userid=1488555551&dlt=0846')">《Den gamles stemme brister》</a><br>
     </div>
-        function loadVideos() {
-            var videoContainer = document.getElementById('videoContainer');
-            // 使用fetch API从GitHub文件中读取视频链接
-            fetch('https://www.bilibili.com/video/BV1Fw411r7Bb/?share_source=copy_web&vd_source=c7488d6ad9aaa954e16a416246750469')
-                .then(response => response.text())
-                .then(data => {
-                    // 将每行数据（视频链接）创建为iframe
-                    data.split('\n').forEach(link => {
-                        if (link.trim() !== '') {
-                            var iframe = document.createElement('iframe');
-                            iframe.src = link; // 假设链接已经是完整的嵌入代码或URL
-                            iframe.allowfullscreen = true;
-                            iframe.frameBorder = "0";
-                            videoContainer.appendChild(iframe);
-                        }
-                    });
-                })
-                .catch(error => console.error('Error loading the video links:', error));
-        }
-
-        // 页面加载完成后加载视频
-        window.onload = loadVideos;
     
+        <div class="video-container">
+            <iframe src="https://www.bilibili.com/video/BV1Fw411r7Bb/?share_source=copy_web&vd_source=c7488d6ad9aaa954e16a416246750469" allowfullscreen="allowfullscreen" width="100%" height="100%"></iframe>
+        </div>
+        <!-- 网易云音乐播放器 -->
+        <div class="netease-music-player">
+            <iframe src="https://y.music.163.com/m/playlist?id=12824617440&userid=1488555551&creatorId=1488555551" frameborder="0"></iframe>
+        </div>
     <script>
         function playSong(songUrl) {
             window.open(songUrl, '_blank');
