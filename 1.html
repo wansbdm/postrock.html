@@ -50,9 +50,15 @@
             max-width: 720px; /* 最大宽度 */
             margin: 20px auto; /* 水平居中 */
         }
-        video {
-            width: 100%; /* 视频宽度填满容器 */
-            height: auto; /* 视频高度自动 */
+        .video-container {
+            width: 100%;
+            max-width: 640px; /* 你可以根据需要调整视频的最大宽度 */
+            margin: 20px auto;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 360px; /* 你可以根据需要调整视频的高度 */
+            border: none;
         }
     </style>
 </head>
@@ -97,33 +103,28 @@
         <a href="#" class="song" onclick="playSong('https://y.music.163.com/m/song?id=2111975449&userid=1488555551&dlt=0846')">《En brennende vogn over jordet》</a><br>
         <a href="#" class="song" onclick="playSong('https://y.music.163.com/m/song?id=1295841438&userid=1488555551&dlt=0846')">《Den gamles stemme brister》</a><br>
     </div>
-        <h2>SleepDealer视频</h2>
-        <div class="video-container">
-            <video controls>
-                <source src="videos/sleepdealer.mp4" type="video/mp4">
-                您的浏览器不支持视频标签。
-            </video>
-        <h2>SleepDealer视频</h2>
-        <div class="video-container">
-            <video controls>
-                <source src="videos/sleepdealer.mp4" type="video/mp4">
-                您的浏览器不支持视频标签。
-            </video>
-        </div>
-        <h2>SleepDealer视频</h2>
-        <div class="video-container">
-            <video controls>
-                <source src="videos/sleepdealer.mp4" type="video/mp4">
-                您的浏览器不支持视频标签。
-            </video>
-        </div>
-        <h2>SleepDealer视频</h2>
-        <div class="video-container">
-            <video controls>
-                <source src="videos/sleepdealer.mp4" type="video/mp4">
-                您的浏览器不支持视频标签。
-            </video>
-        </div>
+        function loadVideos() {
+            var videoContainer = document.getElementById('videoContainer');
+            // 使用fetch API从GitHub文件中读取视频链接
+            fetch('https://www.bilibili.com/video/BV1Fw411r7Bb/?share_source=copy_web&vd_source=c7488d6ad9aaa954e16a416246750469')
+                .then(response => response.text())
+                .then(data => {
+                    // 将每行数据（视频链接）创建为iframe
+                    data.split('\n').forEach(link => {
+                        if (link.trim() !== '') {
+                            var iframe = document.createElement('iframe');
+                            iframe.src = link; // 假设链接已经是完整的嵌入代码或URL
+                            iframe.allowfullscreen = true;
+                            iframe.frameBorder = "0";
+                            videoContainer.appendChild(iframe);
+                        }
+                    });
+                })
+                .catch(error => console.error('Error loading the video links:', error));
+        }
+
+        // 页面加载完成后加载视频
+        window.onload = loadVideos;
     
     <script>
         function playSong(songUrl) {
