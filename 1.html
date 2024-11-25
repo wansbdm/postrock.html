@@ -10,6 +10,48 @@
             height: 100%;
             overflow-x: hidden;
         }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .comment {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #ccc;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        mark {
+            background-color: yellow;
+        }
         .aurora-background {
             position: fixed;
             top: 0;
@@ -94,6 +136,17 @@
     <div class="aurora-background"></div>
     <div class="content">
         <h1>后摇滚聚集地</h1>
+        <nav>
+            <ul>
+                <li><a href="#bands">乐队介绍</a></li>
+                <li><a href="#songs">歌曲推荐</a></li>
+                <li><a href="#player">外链播放器</a></li>
+                <li><a href="#external">外部网页</a></li>
+                <li><a href="#comments">乐迷评论</a></li>
+            </ul>
+        </nav>
+        </header>
+        <section id="bands">
         <h2>乐队介绍</h2>
         <div class="band">
             <div class="band-name">惘闻</div>
@@ -123,6 +176,8 @@
             <div class="band-name">Spurv</div>
             <img src="spurv.png" alt="Spurv乐队">
         </div>
+        </section>
+        <section id="songs">
         <h2>后摇滚歌曲</h2>
         <a href="#" class="song" onclick="playSong('https://y.music.163.com/m/song?id=28164935&userid=1488555551&dlt=0846')">《Hidden Path (匿影藏路)》</a><br>
         <a href="#" class="song" onclick="playSong('https://y.music.163.com/m/song?id=3947467&userid=1488555551&dlt=0846')">《III》</a><br>
@@ -131,17 +186,46 @@
         <a href="#" class="song" onclick="playSong('https://y.music.163.com/m/song?id=2111975449&userid=1488555551&dlt=0846')">《En brennende vogn over jordet》</a><br>
         <a href="#" class="song" onclick="playSong('https://y.music.163.com/m/song?id=1295841438&userid=1488555551&dlt=0846')">《Den gamles stemme brister》</a><br>
     </div>
-    
+
+        </section>
+        <section id="video">
         <div class="video-container">
             <iframe src="https://www.bilibili.com/video/BV1Fw411r7Bb/?share_source=copy_web&vd_source=c7488d6ad9aaa954e16a416246750469" allowfullscreen="allowfullscreen" width="100%" height="100%"></iframe>
         </div>
+        </section>
+        <section id="player">
         <!-- 网易云音乐播放器 -->
         <div class="music-container">
             <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=12824617440&auto=1&height=430"></iframe>
         </div>
+        </section>
+        <section id="external">
         <div class="external-web-container">
             <iframe src="https://www.douban.com/doubanapp/dispatch?uri=/group/139437" frameborder="0"></iframe>
         </div>
+        </section>
+        <section id="comments">
+        <h2>乐迷评论</h2>
+        <div class="comment">
+            <p>“这首歌的贝斯的触感确实像温泉冒出的泡泡一样温润”</p>
+            <p><mark>温泉冒出的泡泡</mark></p>
+        </div>
+        <div class="comment">
+            <p>“試過把她討人厭的地方一一列舉，沒列完就放棄了。當發現連缺點都可以為她鍍金的時候，似乎看懂了愛情最後的荒謬。”</p>
+            <p><mark>最後的荒謬</mark></p>
+        </div>
+        <div class="comment">
+            <p>“戴着耳机走在路上听这首后摇，你会感觉整个世界离你越来越远，因为你会觉得你不属于这个世界，你看到的每一个人都是黑白的，你是彩色的幸运儿，也是彩色的孤儿。”</p>
+            <p><mark>彩色的幸运儿</mark></p>
+        </div>
+        <div class="comment">
+            <p>“今天天晴 阳光明媚 仰天大笑 元气满满”</p>
+            <p><mark>阳光明媚</mark></p>
+        </div>
+    </section>
+    <footer>
+        <p>版权所有 &copy; 2024 后摇滚聚集地</p>
+    </footer>
     <script>
         function playSong(songUrl) {
             window.open(songUrl, '_blank');
