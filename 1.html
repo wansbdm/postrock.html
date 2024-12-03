@@ -126,6 +126,16 @@
         #comments {
             background-color: rgba(255, 255, 255, 0.8); /* 评论背景设置为半透明白色 */
         }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .response {
+            margin-top: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -139,6 +149,7 @@
                 <li><a href="#player">外链播放器</a></li>
                 <li><a href="#external">外部网页</a></li>
                 <li><a href="#comments">乐迷评论</a></li>
+                <li><a href="#festival-style">音乐节风格</a></li>
             </ul>
         </nav>
     </header>
@@ -248,12 +259,22 @@
             <p>“今天天晴 <em>阳光明媚</em> 仰天大笑 元气满满”</p>
         </div>
     </section>
+    <section id="festival-style">
+        <h2>你喜欢的音乐节风格</h2>
+        <button onclick="showResponse('🤘')">A. 朋克</button>
+        <button onclick="showResponse('🤟')">B. 金属</button>
+        <button onclick="showResponse('🎸')">C. 后朋克</button>
+        <button onclick="showResponse('⚽️')">D. 数字摇滚</button>
+        <button onclick="showResponse('🌌')">E. 后摇滚</button>
+        <div class="response" id="response"></div>
+    </section>
     <footer>
         <p>版权所有 &copy; 2024 后摇滚聚集地</p>
     </footer>
     <script>
-        function playSong(songUrl) {
-            window.open(songUrl, '_blank');
+        // 函数用于显示选择的回复
+        function showResponse(response) {
+            document.getElementById('response').innerText = response;
         }
     </script>
 </body>
