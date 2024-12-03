@@ -58,10 +58,12 @@
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 10px 20px;
+            padding: 20px 40px; /* 增加底部的内边距 */
             position: fixed;
             bottom: 0;
             width: 100%;
+            left: 0;
+            box-sizing: border-box; /* 确保内边距不影响宽度计算 */
         }
         mark {
             background-color: yellow;
@@ -135,6 +137,27 @@
         .response {
             margin-top: 20px;
             text-align: center;
+            font-size: 48px; /* 增加图标的大小 */
+        }
+        .stars {
+            position: fixed;
+            top: -10px; /* 初始位置在屏幕外 */
+            left: random(100vw - 100px); /* 随机水平位置 */
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -276,6 +299,29 @@
         function showResponse(response) {
             document.getElementById('response').innerText = response;
         }
+    </script>
+    <script>
+        function createStar() {
+            const starsContainer = document.createElement('div');
+            starsContainer.classList.add('stars');
+            // 随机生成星星的速度和大小
+            const speed = Math.random() * 10 + 5; // 5px/s 到 15px/s
+            const size = Math.random() * 3 + 1; // 1px 到 4px
+            starsContainer.style.animationDuration = `${speed}s`;
+            starsContainer.style.width = `${size}px`;
+            starsContainer.style.height = `${size}px`;
+            starsContainer.style.left = `${Math.random() * (window.innerWidth - size)}px`;
+            document.body.appendChild(starsContainer);
+
+            // 移除旧的星星
+            const allStars = document.querySelectorAll('.stars');
+            if (allStars.length > 100) { // 限制星星的数量
+                document.body.removeChild(allStars[0]);
+            }
+        }
+
+        // 每隔一段时间生成一颗星星
+        setInterval(createStar, 1000);
     </script>
 </body>
 </html>
