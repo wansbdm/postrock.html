@@ -220,11 +220,19 @@
             <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=12824617440&auto=1&height=430"></iframe>
         </div>
         </section>
+        <script>
+    // 函数用于打开豆瓣小组页面
+        function openDoubanGroup() {
+            window.open('https://www.douban.com/group/biggirls/', '_blank');
+        }
+        </script>
+
+<!-- 替换原有的豆瓣小组iframe部分 -->
         <section id="external">
-        <div class="external-web-container">
-            <iframe src="https://www.douban.com/group/biggirls/" frameborder="0"></iframe>
-        </div>
+            <h2>豆瓣小组</h2>
+            <button onclick="openDoubanGroup()">打开豆瓣小组页面</button>
         </section>
+        
         <section id="comments">
         <h2>乐迷评论</h2>
         <div class="comment">
